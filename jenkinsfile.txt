@@ -2,16 +2,9 @@ node {
    def mvnHome
    stage('checkout') { // for display purposes
        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '1ffbeb0e-ac97-4e3c-889f-de9eebec96fc', url: 'https://github.com/likejin0527/java.git']]])
-       mvnHome = tool 'M3' 
    }
    stage('mavenBuild') {
-     withEnv(["MVN_HOME=$mvnHome"]) {
-         if (isUnix()) {
-            sh '"$MVN_HOME/bin/mvn" -Dmaven.test.failure.ignore clean package'
-         } else {
             bat(/"%MVN_HOME%\bin\mvn" -Dmaven.test.failure.ignore clean package/)
-         }
-      }
    }
    stage('deploy') {
       echo 'ddddd'
