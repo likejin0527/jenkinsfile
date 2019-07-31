@@ -5,11 +5,14 @@ node {
    }
    stage('mavenBuild') {
      echo 'ssss'
+     echo 'kkkk'
    }
    stage('deploy') {
       echo 'ddddd'
+      echo 'sbsb'
    }
    stage('test') {
       echo 'test...'
+      echo 'slslsl'
    }
 }
