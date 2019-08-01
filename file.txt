@@ -1,0 +1,19 @@
+node {
+   //def mvnHome
+   stage('checkout') { // for display purposes
+       checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '7aa38f20-cd65-4a2c-aa82-150cb472b43e', url: 'https://github.com/likejin0527/springboot-demo.git']]])
+   }
+   stage('mavenBuild') {
+       withMaven(jdk: 'JDK9', maven: 'MAVEN') {
+    // some block
+}
+   }
+   stage('deploy') {
+      echo 'ddddd'
+      echo 'sbsb'
+   }
+   stage('test') {
+      echo 'test...'
+      echo 'slslsl'
+   }
+}
