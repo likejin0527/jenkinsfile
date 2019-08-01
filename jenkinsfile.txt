@@ -4,9 +4,7 @@ node {
        git credentialsId: '1ffbeb0e-ac97-4e3c-889f-de9eebec96fc', url: 'https://github.com/likejin0527/java.git'
    }
    stage('mavenBuild') {
-       withMaven(jdk: 'JDK9', maven: 'MAVEN') {
-    // some block
-}
+        bat(/"%M2_HOME%\bin\mvn" -Dmaven.test.failure.ignore clean package/)
    }
    stage('deploy') {
       echo 'ddddd'
