@@ -4,9 +4,7 @@ node {
        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '7aa38f20-cd65-4a2c-aa82-150cb472b43e', url: 'https://github.com/likejin0527/springboot-demo.git']]])
    }
    stage('mavenBuild') {
-       withMaven(jdk: 'JDK9', maven: 'MAVEN') {
-    // some block
-}
+       bat(/"%M2_HOME%\bin\mvn" -Dmaven.test.skip=true clean package/)
    }
    stage('deploy') {
       echo 'ddddd'
