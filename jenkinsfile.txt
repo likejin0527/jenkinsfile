@@ -1,7 +1,7 @@
 node {
    //def mvnHome
    stage('checkout') { // for display purposes
-       git credentialsId: '1ffbeb0e-ac97-4e3c-889f-de9eebec96fc', url: 'https://github.com/likejin0527/java.git'
+       checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '1ffbeb0e-ac97-4e3c-889f-de9eebec96fc', url: 'https://github.com/likejin0527/springboot-demo.git']]])
    }
    stage('mavenBuild') {
        echo 'sss'
